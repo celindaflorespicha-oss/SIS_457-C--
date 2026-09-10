@@ -50,3 +50,12 @@ public:
         }
     }
 };
+
+int main()
+{
+    Torre torreBlanca(false, 1, 1);
+    Torre torreNegra(true, 8, 8);
+
+    return 0;
+}
+
