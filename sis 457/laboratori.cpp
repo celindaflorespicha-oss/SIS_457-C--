@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Torre
@@ -31,7 +32,8 @@ public:
 
     void move(int newRow, int newCol)
     {
-        if (newRow < 1 || newRow > 8 || newCol < 1 || newCol > 8)
+        if (newRow < 1 || newRow > 8 ||
+            newCol < 1 || newCol > 8)
         {
             cout << "Error: posicion fuera del tablero." << endl;
             return;
@@ -42,11 +44,13 @@ public:
             row = newRow;
             column = newCol;
 
-            cout << "Movimiento de la Torre realizado correctamente." << endl;
+            cout << "Movimiento de la Torre realizado correctamente."
+                 << endl;
         }
         else
         {
-            cout << "Error: la Torre no puede realizar ese movimiento." << endl;
+            cout << "Error: la Torre no puede realizar ese movimiento."
+                 << endl;
         }
     }
 
@@ -66,13 +70,13 @@ public:
     {
         if (isBlack)
         {
-            cout << "[##] Black at Row: " << row
-                 << ", Col: " << column << endl;
+            cout << draw() << " Black at Row: "
+                 << row << ", Col: " << column << endl;
         }
         else
         {
-            cout << "[TT] White at Row: " << row
-                 << ", Col: " << column << endl;
+            cout << draw() << " White at Row: "
+                 << row << ", Col: " << column << endl;
         }
     }
 };
@@ -82,6 +86,11 @@ int main()
     Torre torreBlanca(false, 1, 1);
     Torre torreNegra(true, 8, 8);
 
+    cout << "=================================" << endl;
+    cout << "       TORRE DE AJEDREZ" << endl;
+    cout << "=================================" << endl;
+
+    cout << endl;
     cout << "ESTADO INICIAL" << endl;
 
     torreBlanca.printState();
@@ -90,6 +99,7 @@ int main()
     int nuevaFila;
     int nuevaColumna;
 
+    // TORRE BLANCA
     cout << endl;
     cout << "TORRE BLANCA" << endl;
 
@@ -101,8 +111,10 @@ int main()
 
     torreBlanca.move(nuevaFila, nuevaColumna);
 
+    cout << "Nuevo estado:" << endl;
     torreBlanca.printState();
 
+    // TORRE NEGRA
     cout << endl;
     cout << "TORRE NEGRA" << endl;
 
@@ -114,7 +126,13 @@ int main()
 
     torreNegra.move(nuevaFila, nuevaColumna);
 
+    cout << "Nuevo estado:" << endl;
     torreNegra.printState();
 
+    cout << endl;
+    cout << "=================================" << endl;
+    cout << "       FIN DEL PROGRAMA" << endl;
+    cout << "=================================" << endl;
+
     return 0;
-}
+};
