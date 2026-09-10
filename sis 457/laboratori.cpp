@@ -8,6 +8,18 @@ private:
     int column;
     bool isBlack;
 
+    bool validateMovement(int newRow, int newCol)
+    {
+        if (newRow == row || newCol == column)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 public:
 
     Torre(bool color, int fila, int columna)
@@ -16,12 +28,25 @@ public:
         row = fila;
         column = columna;
     }
+
+    void move(int newRow, int newCol)
+    {
+        if (newRow < 1 || newRow > 8 || newCol < 1 || newCol > 8)
+        {
+            cout << "Error: posicion fuera del tablero." << endl;
+            return;
+        }
+
+        if (validateMovement(newRow, newCol))
+        {
+            row = newRow;
+            column = newCol;
+
+            cout << "Movimiento de la Torre realizado correctamente." << endl;
+        }
+        else
+        {
+            cout << "Error: la Torre no puede realizar ese movimiento." << endl;
+        }
+    }
 };
-
-int main()
-{
-    Torre torreBlanca(false, 1, 1);
-    Torre torreNegra(true, 8, 8);
-
-    return 0;
-}
