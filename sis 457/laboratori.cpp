@@ -49,6 +49,32 @@ public:
             cout << "Error: la Torre no puede realizar ese movimiento." << endl;
         }
     }
+
+    string draw()
+    {
+        if (isBlack)
+        {
+            return "[##]";
+        }
+        else
+        {
+            return "[TT]";
+        }
+    }
+
+    void printState()
+    {
+        if (isBlack)
+        {
+            cout << "[##] Black at Row: " << row
+                 << ", Col: " << column << endl;
+        }
+        else
+        {
+            cout << "[TT] White at Row: " << row
+                 << ", Col: " << column << endl;
+        }
+    }
 };
 
 int main()
@@ -57,5 +83,4 @@ int main()
     Torre torreNegra(true, 8, 8);
 
     return 0;
-}
-
+};
