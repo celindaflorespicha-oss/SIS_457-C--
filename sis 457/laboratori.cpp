@@ -82,5 +82,39 @@ int main()
     Torre torreBlanca(false, 1, 1);
     Torre torreNegra(true, 8, 8);
 
+    cout << "ESTADO INICIAL" << endl;
+
+    torreBlanca.printState();
+    torreNegra.printState();
+
+    int nuevaFila;
+    int nuevaColumna;
+
+    cout << endl;
+    cout << "TORRE BLANCA" << endl;
+
+    cout << "Ingrese nueva fila: ";
+    cin >> nuevaFila;
+
+    cout << "Ingrese nueva columna: ";
+    cin >> nuevaColumna;
+
+    torreBlanca.move(nuevaFila, nuevaColumna);
+
+    torreBlanca.printState();
+
+    cout << endl;
+    cout << "TORRE NEGRA" << endl;
+
+    cout << "Ingrese nueva fila: ";
+    cin >> nuevaFila;
+
+    cout << "Ingrese nueva columna: ";
+    cin >> nuevaColumna;
+
+    torreNegra.move(nuevaFila, nuevaColumna);
+
+    torreNegra.printState();
+
     return 0;
-};
+}
