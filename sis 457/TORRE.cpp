@@ -93,5 +93,18 @@ public:
 
 int main()
 {
+    cout << "============================================" << endl;
+    cout << "       JUEGO DE LA TORRE DE AJEDREZ        " << endl;
+    cout << "============================================" << endl;
+
+    Torre torreBlanca(false, 1, 1);
+    Torre torreNegra(true, 8, 8);
+
+    cout << endl;
+    cout << "ESTADO INICIAL" << endl;
+
+    torreBlanca.printState();
+    torreNegra.printState();
+
     return 0;
 }
