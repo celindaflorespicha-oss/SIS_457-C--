@@ -91,20 +91,113 @@ public:
     }
 };
 
+int convertirColumna(char columna)
+{
+    if (columna == 'A' || columna == 'a')
+        return 1;
+    else if (columna == 'B' || columna == 'b')
+        return 2;
+    else if (columna == 'C' || columna == 'c')
+        return 3;
+    else if (columna == 'D' || columna == 'd')
+        return 4;
+    else if (columna == 'E' || columna == 'e')
+        return 5;
+    else if (columna == 'F' || columna == 'f')
+        return 6;
+    else if (columna == 'G' || columna == 'g')
+        return 7;
+    else if (columna == 'H' || columna == 'h')
+        return 8;
+
+    return -1;
+}
+
 int main()
 {
     cout << "============================================" << endl;
     cout << "       JUEGO DE LA TORRE DE AJEDREZ        " << endl;
     cout << "============================================" << endl;
 
+    cout << endl;
+    cout << "INSTRUCCIONES" << endl;
+    cout << "Las columnas se representan con letras de A a H." << endl;
+    cout << "Las filas se representan con numeros del 1 al 8." << endl;
+    cout << "La Torre solamente puede moverse en horizontal o vertical." << endl;
+
     Torre torreBlanca(false, 1, 1);
     Torre torreNegra(true, 8, 8);
 
     cout << endl;
-    cout << "ESTADO INICIAL" << endl;
+    cout << "--------------------------------------------" << endl;
+    cout << "             ESTADO INICIAL                 " << endl;
+    cout << "--------------------------------------------" << endl;
 
     torreBlanca.printState();
     torreNegra.printState();
+
+    char columna;
+    int fila;
+    int nuevaColumna;
+
+    cout << endl;
+    cout << "--------------------------------------------" << endl;
+    cout << "        MOVIMIENTO DE LA TORRE BLANCA       " << endl;
+    cout << "--------------------------------------------" << endl;
+
+    cout << "Ingrese la nueva columna (A-H): ";
+    cin >> columna;
+
+    cout << "Ingrese la nueva fila (1-8): ";
+    cin >> fila;
+
+    nuevaColumna = convertirColumna(columna);
+
+    if (nuevaColumna == -1)
+    {
+        cout << "Error: columna invalida." << endl;
+        cout << "Debe ingresar una columna entre A y H." << endl;
+    }
+    else
+    {
+        torreBlanca.move(fila, nuevaColumna);
+    }
+
+    cout << endl;
+    cout << "Estado actual de la Torre Blanca:" << endl;
+    torreBlanca.printState();
+
+    cout << endl;
+    cout << "--------------------------------------------" << endl;
+    cout << "        MOVIMIENTO DE LA TORRE NEGRA        " << endl;
+    cout << "--------------------------------------------" << endl;
+
+    cout << "Ingrese la nueva columna (A-H): ";
+    cin >> columna;
+
+    cout << "Ingrese la nueva fila (1-8): ";
+    cin >> fila;
+
+    nuevaColumna = convertirColumna(columna);
+
+    if (nuevaColumna == -1)
+    {
+        cout << "Error: columna invalida." << endl;
+        cout << "Debe ingresar una columna entre A y H." << endl;
+    }
+    else
+    {
+        torreNegra.move(fila, nuevaColumna);
+    }
+
+    cout << endl;
+    cout << "Estado actual de la Torre Negra:" << endl;
+    torreNegra.printState();
+
+    cout << endl;
+    cout << "============================================" << endl;
+    cout << "             FIN                              " << endl;
+    cout << "============================================" << endl;
 
     return 0;
 }
