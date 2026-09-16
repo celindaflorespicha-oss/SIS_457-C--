@@ -1,25 +1,15 @@
 #include <iostream>
+
 using namespace std;
-class Torre{
-    private:
+
+class Torre
+{
+private:
     int row;
     int column;
     bool isBlack;
-      bool validateMovement(int newRow, int newCol)
-    {
-        if (row == newRow && column != newCol)
-        {
-            return true;
-        }
 
-        if (column == newCol && row != newRow)
-        {
-            return true;
-        }
-
-        return false;
-    }
-    public:
+public:
 
     Torre(bool color, int filaInicial, int columnaInicial)
     {
@@ -28,3 +18,8 @@ class Torre{
         column = columnaInicial;
     }
 };
+
+int main()
+{
+    return 0;
+}
